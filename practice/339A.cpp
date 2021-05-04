@@ -1,36 +1,41 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-int main(){
+int main()
+{
     string str;
-    cin>>str;
-    string temp="";
-    for(int i=0;i<str.length();i++){
-        char c=str[i];
-        if(str[i]!='+'){
-        temp+=c;
-    }
-    }
-    // cout<<temp<<endl;
-    int len=temp.length();
-    int a[len];
-    for(int i=0;i<len;i++){
-        a[i]=(int)temp[i];
-    }
-    sort(a,a+len);
-    for(int i=0;i<len;i++){
-        cout<<a[i];
+    cin >> str;
+    string temp = "";
+    int a = 0, b = 0, c = 0;
+    for (int i = 0; i < str.length(); i++)
+    {
+        if (str[i] == '1')
+        {
+            a++;
+        }
+        else if (str[i] == '2')
+            b++;
+        else if (str[i] == '3')
+            c++;
     }
 
-    if(len>1){
-        for(int i=0,j=0;i<len,j<str.length();i++,j+2){
-            str[j]=(char)a[i];
-            str[j+1]='+';
-        }
-        for(int i=0;i<str.length();i++){
-        cout<<str[i];
+    char ch = '+';
+
+    while (a--)
+    {
+        temp += "1+";
     }
+    while (b--)
+    {
+        temp += "2+";
     }
-    else
-    cout<<a[0];
+    while (c--)
+    {
+        temp += "3+";
+    }
+    for (int i = 0; i < temp.length() - 1; i++)
+    {
+        str[i] = temp[i];
+    }
+    cout << str;
 }
